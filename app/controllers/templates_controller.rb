@@ -6,5 +6,7 @@ class TemplatesController < ApplicationController
   end
 
   def show
+    @template = Template.find(params[:id])
+    render json: @template
   end
 end
