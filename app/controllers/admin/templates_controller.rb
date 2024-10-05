@@ -12,8 +12,14 @@ class Admin::TemplatesController < ApplicationController
     params.require(:template).permit(:name, :description, :design_code)
   end
 
+  def destroy
+    @template = Template.find(params[:id])
+    @template.destroy
+    render json: { message: 'Template deleted successfully.' }
+  end
+
   def admin_only
-    redirect_to(root_path, alert: 'Not authorized') unless current_user.admin?
+    render json: { message: 'Not authorized' } unless current_user.admin?
   end
 
 end
