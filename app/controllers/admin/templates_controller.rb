@@ -6,6 +6,15 @@ class Admin::TemplatesController < ApplicationController
     @template = Template.new
   end
 
+  def update
+    @template = Template.find(params[:id])
+    if @template.update(template_params)
+      render json: { message: 'Template updated successfully.' }
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @template = Template.find(params[:id])
     @template.destroy
