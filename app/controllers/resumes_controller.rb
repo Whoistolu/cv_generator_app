@@ -9,4 +9,10 @@ class ResumesController < ApplicationController
 
   def show
   end
+
+  private
+
+  def resume_params
+    params.require(:resume).permit(:name, :skills, :experience, :education, :template_id, :picture)
+  end
 end
