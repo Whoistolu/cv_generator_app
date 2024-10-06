@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  skills: MyText
+  experience: MyText
+  education: MyText
+  user: one
+  template: one
+
+two:
+  name: MyString
+  skills: MyText
+  experience: MyText
+  education: MyText
+  user: two
+  template: two
