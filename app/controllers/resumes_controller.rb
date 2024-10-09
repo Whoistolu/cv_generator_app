@@ -25,6 +25,10 @@ class ResumesController < ApplicationController
     end
   end
 
+  def show
+    render json: @resume
+  end
+
   private
 
   def resume_params
