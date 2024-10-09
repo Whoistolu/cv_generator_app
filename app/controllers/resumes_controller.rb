@@ -8,19 +8,22 @@ class ResumesController < ApplicationController
   def create
     @resume = current_user.resumes.build(resume_params)
     if @resume.save
-      render json: { message: 'Resume created successfully.' }
+      render json: { message: 'Resume created successfully.' }, status: :created
     else
-      render :new
+      render json: { errors: @resume.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
+  def edit
+  end
+
   def update
-    @resume = current_user.resumes.find(params[:id])
     if @resume.update(resume_params)
-      render json: { message: 'Resume updated successfully.' }
+      render json: { message: 'Resume updated successfully.' }, status: :ok
     else
-      render :edit
+      render json: { errors: @resume.errors.full_messages }, status: :unprocessable_entity
     end
+  end
 
   private
 
