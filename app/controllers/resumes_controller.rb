@@ -29,6 +29,12 @@ class ResumesController < ApplicationController
     render json: @resume
   end
 
+  def destroy
+    @resume.destroy
+    render json: { message: 'Resume deleted successfully.' }, status: :ok
+  end
+
+
   private
 
   def resume_params
