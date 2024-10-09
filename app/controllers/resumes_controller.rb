@@ -14,9 +14,13 @@ class ResumesController < ApplicationController
     end
   end
 
-  def show
-    @resume = Resume.find(params[:id])
-  end
+  def update
+    @resume = current_user.resumes.find(params[:id])
+    if @resume.update(resume_params)
+      render json: { message: 'Resume updated successfully.' }
+    else
+      render :edit
+    end
 
   private
 
