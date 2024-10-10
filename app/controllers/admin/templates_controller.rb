@@ -3,6 +3,10 @@ class Admin::TemplatesController < ApplicationController
   before_action :admin_only
   load_and_authorize_resource
 
+  def index
+    @templates = Template.all
+  end
+
   def new
     @template = Template.new
   end
@@ -41,7 +45,7 @@ class Admin::TemplatesController < ApplicationController
   end
 
   def admin_only
-    render json: { message: 'Not authorized' } unless current_user.admin?
+    render json: { message: 'You are not authorized!' } unless current_user.admin?
   end
 
 end
