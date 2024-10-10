@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Routes admin routes
+  namespace :admin do
+    resources :templates, only: [:new, :create, :edit, :update, :destroy, :index, :show]
+  end
+
+  # Routes for users
+  resources :resumes, only: [:new, :create, :edit, :update, :show, :index]
+  resources :templates, only: [:index, :show]
 end
