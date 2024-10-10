@@ -1,9 +1,22 @@
 class Admin::TemplatesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_only
+  load_and_authorize_resource
 
   def new
     @template = Template.new
+  end
+
+  def create
+    @template = Template.new(template_params)
+    if @template.save
+      render json: { message: 'Template created successfully.' }
+    else
+      render :new
+    end
+  end
+
+  def edit
   end
 
   def update
