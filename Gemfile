@@ -16,6 +16,8 @@ gem 'devise'
 
 gem 'prawn'
 
+gem 'cancancan', '~> 3.4'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

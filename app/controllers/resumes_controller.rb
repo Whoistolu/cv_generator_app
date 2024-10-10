@@ -34,7 +34,6 @@ class ResumesController < ApplicationController
     render json: { message: 'Resume deleted successfully.' }, status: :ok
   end
 
-
   private
 
   def resume_params
